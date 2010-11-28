@@ -165,15 +165,15 @@ function uc_member_pricing_role_form( $price_rule ) {
   // * role name [ select box ] - rid
   
   if ( $price_rule 
-      && $price_rule[ 'type' ] != UCMP_TYPE_ROLE
+      && $price_rule[ 'type' ] == UCMP_TYPE_ROLE
       && array_key_exists( 'xid', $price_rule ) ) {
          
     $rid = $price_rule[ 'xid' ];
   }
   
   $options = array();
-  foreach ( user_roles() as $rid => $name ) {
-    $options[ $rid ] = $name;
+  foreach ( user_roles() as $rid_for => $name ) {
+    $options[ $rid_for ] = $name;
   }
   
   $form['user_role'] = array(
